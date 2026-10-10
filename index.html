@@ -105,6 +105,19 @@ a{color:inherit}
 .hero-cta .cta{justify-content:center}
 .hero-cta .soc{justify-content:center}
 
+
+/* лейбл-логотип в левом верхнем углу: объёмная плашка */
+.label-row{position:relative;z-index:1;display:flex;padding:clamp(14px,2vw,24px) clamp(16px,2.5vw,40px) 0}
+.label3d{display:inline-flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;perspective:700px}
+.label3d .tile{position:relative;overflow:hidden;width:clamp(120px,12vw,168px);aspect-ratio:1;background:#fff;border-radius:10px;padding:5px;
+  transform:rotateY(-16deg) rotateX(6deg);transform-style:preserve-3d;animation:swing 6s ease-in-out infinite alternate;
+  box-shadow:1px 1px 0 var(--coral),2px 2px 0 var(--coral),3px 3px 0 var(--coral),4px 4px 0 var(--coral-lo),5px 5px 0 var(--coral-lo),
+    6px 6px 0 var(--coral-lo),7px 7px 0 var(--coral-lo),8px 8px 0 var(--coral-lo),14px 18px 24px rgba(0,0,0,.45)}
+.label3d .tile img{display:block;width:100%;height:100%;object-fit:contain;border-radius:6px}
+.label3d .tile::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:wave 4.2s ease-in-out infinite}
+.label3d .cap{font:500 14px/1.3 'Golos Text',system-ui,sans-serif;color:var(--soft);text-align:center;max-width:22ch}
+@keyframes swing{from{transform:rotateY(-18deg) rotateX(7deg)}to{transform:rotateY(14deg) rotateX(3deg)}}
+
 /* секции */
 .sec{padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--line)}
 .sec-alt{background:var(--bg-2)}
@@ -234,6 +247,12 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
 
 <main>
 <section class="hero" id="top">
+  <div class="label-row">
+    <a class="label3d" href="#contacts" aria-label="Здесь будет ваш лейбл">
+      <span class="tile"><img src="img/logo-guild.jpg" alt="Логотип «Гильдия Артистов Эстрады» (пример лейбла)" width="440" height="440"></span>
+      <span class="cap">Здесь будет ваш лейбл</span>
+    </a>
+  </div>
   <div class="h1w">
     <h1 class="h1 t3d">Живая музыка. Живая сцена</h1>
   </div>
