@@ -112,9 +112,9 @@ a{color:inherit}
 .fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #stars{z-index:0}
 #fw{z-index:2;mix-blend-mode:screen}
-.mic{position:absolute;left:50%;top:55%;width:clamp(70px,10cqw,150px);transform:translate(-50%,-52%);z-index:3;pointer-events:none;
+.mic{position:absolute;left:50%;top:56%;width:clamp(76px,11cqw,170px);transform:translate(-50%,-52%) rotate(10deg);z-index:3;pointer-events:none;
   filter:drop-shadow(0 .6cqw 1.4cqw rgba(0,0,0,.7)) drop-shadow(0 0 2.4cqw rgba(217,167,92,.45));animation:micfloat 5s ease-in-out infinite}
-@keyframes micfloat{0%,100%{transform:translate(-50%,-52%)}50%{transform:translate(-50%,-56%)}}
+@keyframes micfloat{0%,100%{transform:translate(-50%,-52%) rotate(10deg)}50%{transform:translate(-50%,-56%) rotate(7deg)}}
 .eyebrow::before{content:"º6 a0";letter-spacing:0}
 
 
@@ -273,23 +273,26 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
     <p class="h1-sub t3d">Живая музыка, живая сцена</p>
   </div>
   <div class="stream" id="stream" aria-hidden="true"><div class="persp" id="persp"><div class="ish3d" id="ish3d"></div></div>
-    <svg class="mic" viewBox="0 0 100 190" aria-hidden="true">
-          <defs>
-            <linearGradient id="mg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8C6A2F"/><stop offset=".35" stop-color="#F7DFA3"/><stop offset=".7" stop-color="#D9A75C"/><stop offset="1" stop-color="#7F581D"/></linearGradient>
-            <linearGradient id="mh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1D9A4"/><stop offset="1" stop-color="#B98A3F"/></linearGradient>
-            <clipPath id="mc"><rect x="22" y="6" width="56" height="86" rx="28"/></clipPath>
-          </defs>
-          <rect x="22" y="6" width="56" height="86" rx="28" fill="url(#mg)"/>
-          <g clip-path="url(#mc)" stroke="#5A441A" stroke-opacity=".55" stroke-width="1.6">
-            <path d="M22 26h56M22 38h56M22 50h56M22 62h56M22 74h56"/>
-            <path d="M36 6v86M50 6v86M64 6v86" stroke-opacity=".35"/>
-          </g>
-          <rect x="18" y="88" width="64" height="12" rx="4" fill="url(#mh)"/>
-          <rect x="40" y="100" width="20" height="46" rx="6" fill="url(#mg)"/>
-          <path d="M30 150h40l6 8H24z" fill="url(#mh)"/>
-          <rect x="44" y="158" width="12" height="20" fill="url(#mg)"/>
-          <ellipse cx="50" cy="180" rx="34" ry="7" fill="url(#mh)"/>
-        </svg>
+    <svg class="mic" viewBox="0 0 100 224" aria-hidden="true">
+      <defs>
+        <radialGradient id="mhead" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#FFF1C4"/><stop offset=".35" stop-color="#F0C969"/><stop offset=".75" stop-color="#C08A2E"/><stop offset="1" stop-color="#7A531A"/></radialGradient>
+        <linearGradient id="mbody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6F4A14"/><stop offset=".28" stop-color="#F7DFA3"/><stop offset=".55" stop-color="#D9A75C"/><stop offset="1" stop-color="#5E3F10"/></linearGradient>
+        <linearGradient id="mring" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1C4"/><stop offset=".5" stop-color="#D9A75C"/><stop offset="1" stop-color="#8C6A2F"/></linearGradient>
+        <clipPath id="mclip"><circle cx="50" cy="48" r="40"/></clipPath>
+      </defs>
+      <circle cx="50" cy="48" r="40" fill="url(#mhead)"/>
+      <g clip-path="url(#mclip)" stroke="#5A3A0A" stroke-opacity=".6" stroke-width="1.7" fill="none">
+        <path d="M0 8L100 108M0 22L100 122M0 36L100 136M0 50L100 150M0 64L100 164M0 78L100 178M0 -6L100 94"/>
+        <path d="M100 8L0 108M100 22L0 122M100 36L0 136M100 50L0 150M100 64L0 164M100 78L0 178M100 -6L0 94"/>
+      </g>
+      <ellipse cx="36" cy="30" rx="13" ry="9" fill="#fff" opacity=".4" transform="rotate(-30 36 30)"/>
+      <rect x="22" y="82" width="56" height="16" rx="7" fill="url(#mring)"/>
+      <path d="M31 98h38l-7 98q-12 8-24 0z" fill="url(#mbody)"/>
+      <rect x="35" y="118" width="30" height="7" rx="3" fill="url(#mring)"/>
+      <rect x="33" y="170" width="34" height="6" rx="3" fill="url(#mring)"/>
+      <path d="M40 130v34M50 130v34M60 130v34" stroke="#5A3A0A" stroke-opacity=".35" stroke-width="2"/>
+      <path d="M42 196q8 6 16 0l-2 16h-12z" fill="url(#mring)"/>
+    </svg>
   </div>
   <div class="wrap hero-cta">
     <p class="sub">Концерты, новые релизы и шоу-программы – всё о проекте в одном месте. Выберите дату и приходите.</p>
@@ -404,7 +407,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
         <dl class="facts-l">
           <div><dt>Телефон</dt><dd><a href="tel:+79000000000" style="text-decoration:none">+7 (900) 000-00-00</a></dd></div>
           <div><dt>Почта</dt><dd>info@example.ru</dd></div>
-          <div><dt>Город</dt><dd>Ставрополь <span style="font-size:15px;color:var(--muted);font-weight:400">– условный адрес</span></dd></div>
+          <div><dt>Город</dt><dd>Москва <span style="font-size:15px;color:var(--muted);font-weight:400">– условный адрес</span></dd></div>
         </dl>
         <div class="msgs">
           <a class="btn btn-sm btn-dark" href="https://t.me/" rel="noopener">Telegram</a>
@@ -432,7 +435,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
       </div>
     </div>
     <div class="map">
-      <iframe title="Карта (пример)" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=41.969%2C45.043&z=12&l=map"></iframe>
+      <iframe title="Карта (пример)" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=37.617%2C55.756&z=11&l=map"></iframe>
     </div>
   </div>
 </section>
@@ -461,7 +464,8 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
   if (!hero || !sc || !fc) return;
   var sx = sc.getContext('2d'), fx = fc.getContext('2d');
   var W = 0, H = 0, dpr = 1, stars = [], parts = [], rockets = [], visible = true, last = 0, nextLaunch = 0;
-  var GOLD = ['#F7DFA3','#E8C48C','#D9A75C','#FFFFFF','#FFE9B5'];
+  var GOLD = ['#FFF3C9','#FFE08A','#F7DFA3','#E8C48C','#D9A75C','#FFFFFF','#FFD27A'];
+  var TAU = 6.283185;
 
   function size(){
     var r = hero.getBoundingClientRect();
@@ -469,64 +473,84 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
     W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
     [sc, fc].forEach(function(c){ c.width = W * dpr; c.height = H * dpr; });
     sx.setTransform(dpr,0,0,dpr,0,0); fx.setTransform(dpr,0,0,dpr,0,0);
-    var n = Math.round(W * H / 5500);
+    var n = Math.min(520, Math.round(W * H / 2000));
     stars = [];
     for (var i = 0; i < n; i++){
-      stars.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.3+.3, p:Math.random()*6.28, s:Math.random()*1.6+.4,
-        c:Math.random()<.35?'#F7DFA3':'#FFFFFF', spark:Math.random()<.06});
+      var big = Math.random() < .12;
+      stars.push({x:Math.random()*W, y:Math.random()*H, r:big ? Math.random()*1.4+1.4 : Math.random()*1.2+.35,
+        p:Math.random()*TAU, s:Math.random()*2+.5, c:Math.random()<.4?'#FFE08A':'#FFFFFF', star:big || Math.random()<.1});
     }
+  }
+
+  function star4(ctx, x, y, R){
+    var r = R * .28;
+    ctx.beginPath();
+    for (var i = 0; i < 8; i++){
+      var a = i * Math.PI / 4 - Math.PI / 2, rr = (i % 2 === 0) ? R : r;
+      ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+    }
+    ctx.closePath(); ctx.fill();
   }
 
   function drawStars(t){
     sx.clearRect(0,0,W,H);
     for (var i = 0; i < stars.length; i++){
       var st = stars[i];
-      var a = .25 + .75 * (.5 + .5 * Math.sin(t / 1000 * st.s + st.p));
-      sx.globalAlpha = a * .85;
+      var a = .2 + .8 * (.5 + .5 * Math.sin(t / 1000 * st.s + st.p));
+      sx.globalAlpha = a;
       sx.fillStyle = st.c;
-      if (st.spark){
-        var L = st.r * 5 * (.6 + .4 * a);
-        sx.strokeStyle = st.c; sx.lineWidth = 1;
-        sx.beginPath(); sx.moveTo(st.x - L, st.y); sx.lineTo(st.x + L, st.y); sx.moveTo(st.x, st.y - L); sx.lineTo(st.x, st.y + L); sx.stroke();
-      }
-      sx.beginPath(); sx.arc(st.x, st.y, st.r, 0, 6.283); sx.fill();
+      if (st.star) star4(sx, st.x, st.y, st.r * 3.2 * (.7 + .5 * a));
+      else { sx.beginPath(); sx.arc(st.x, st.y, st.r, 0, TAU); sx.fill(); }
     }
     sx.globalAlpha = 1;
   }
 
   function burst(x, y, n){
     var base = GOLD[(Math.random() * GOLD.length) | 0];
-    n = n || (60 + (Math.random() * 40 | 0));
+    n = n || (120 + (Math.random() * 70 | 0));
     for (var i = 0; i < n; i++){
-      var a = Math.random() * 6.283, v = (Math.random() * .6 + .4) * (2 + Math.random() * 4.2);
-      parts.push({x:x, y:y, vx:Math.cos(a) * v, vy:Math.sin(a) * v, life:1, d:.011 + Math.random() * .012,
-        r:Math.random() * 1.6 + .8, c:Math.random() < .6 ? base : GOLD[(Math.random() * GOLD.length) | 0]});
+      var a = Math.random() * TAU, ring = Math.random() < .35;
+      var v = ring ? 4.6 + Math.random() * .6 : (Math.random() * .7 + .3) * (2 + Math.random() * 5.2);
+      var isStar = Math.random() < .45;
+      parts.push({x:x, y:y, vx:Math.cos(a) * v, vy:Math.sin(a) * v, life:1, d:.008 + Math.random() * .010,
+        r:isStar ? Math.random() * 3 + 2.2 : Math.random() * 1.8 + .9, star:isStar, tw:Math.random() * TAU,
+        c:Math.random() < .55 ? base : GOLD[(Math.random() * GOLD.length) | 0], g:isStar ? .035 : .05});
+    }
+    /* мелкие блёстки, которые медленно осыпаются */
+    for (var k = 0; k < 40; k++){
+      var b = Math.random() * TAU, vv = Math.random() * 2.2;
+      parts.push({x:x, y:y, vx:Math.cos(b) * vv, vy:Math.sin(b) * vv - .4, life:1, d:.004 + Math.random() * .004,
+        r:Math.random() * 1.1 + .5, star:false, tw:Math.random() * TAU, c:'#FFF3C9', g:.02, glitter:true});
     }
   }
   function launch(tx, ty){
-    rockets.push({x:tx + (Math.random() - .5) * 120, y:H + 10, tx:tx, ty:ty, vy:-(7 + Math.random() * 3)});
+    rockets.push({x:tx + (Math.random() - .5) * 160, y:H + 10, tx:tx, ty:ty, vy:-(7.5 + Math.random() * 3)});
   }
 
-  function drawFx(){
+  function drawFx(t){
     fx.globalCompositeOperation = 'destination-out';
-    fx.fillStyle = 'rgba(0,0,0,.22)';
+    fx.fillStyle = 'rgba(0,0,0,.18)';
     fx.fillRect(0,0,W,H);
     fx.globalCompositeOperation = 'lighter';
     var i, p;
     for (i = rockets.length - 1; i >= 0; i--){
       p = rockets[i];
       p.y += p.vy; p.x += (p.tx - p.x) * .035;
-      fx.fillStyle = '#FFE9B5'; fx.beginPath(); fx.arc(p.x, p.y, 2, 0, 6.283); fx.fill();
+      fx.fillStyle = '#FFF3C9'; fx.beginPath(); fx.arc(p.x, p.y, 2.4, 0, TAU); fx.fill();
+      fx.fillStyle = 'rgba(255,224,138,.5)'; fx.beginPath(); fx.arc(p.x, p.y + 6, 1.6, 0, TAU); fx.fill();
       if (p.y <= p.ty){ burst(p.x, p.y); rockets.splice(i, 1); }
     }
     for (i = parts.length - 1; i >= 0; i--){
       p = parts[i];
-      p.vx *= .985; p.vy = p.vy * .985 + .045;
+      p.vx *= .985; p.vy = p.vy * .985 + p.g;
       p.x += p.vx; p.y += p.vy; p.life -= p.d;
       if (p.life <= 0){ parts.splice(i, 1); continue; }
-      fx.globalAlpha = Math.max(0, p.life);
+      var al = Math.max(0, p.life);
+      if (p.glitter) al *= .5 + .5 * Math.sin(t / 60 + p.tw);
+      fx.globalAlpha = Math.min(1, al * 1.2);
       fx.fillStyle = p.c;
-      fx.beginPath(); fx.arc(p.x, p.y, p.r * (.6 + p.life * .6), 0, 6.283); fx.fill();
+      if (p.star) star4(fx, p.x, p.y, p.r * (.7 + p.life * .7));
+      else { fx.beginPath(); fx.arc(p.x, p.y, p.r * (.6 + p.life * .6), 0, TAU); fx.fill(); }
     }
     fx.globalAlpha = 1;
   }
@@ -534,19 +558,20 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
   function frame(t){
     requestAnimationFrame(frame);
     if (!visible || document.hidden) return;
-    if (t - last < 28) return;
+    if (t - last < 24) return;
     last = t;
     drawStars(t);
     if (t > nextLaunch){
-      launch(W * (.12 + Math.random() * .76), H * (.12 + Math.random() * .34));
-      nextLaunch = t + 1400 + Math.random() * 1800;
+      launch(W * (.1 + Math.random() * .8), H * (.1 + Math.random() * .38));
+      if (Math.random() < .4) launch(W * (.1 + Math.random() * .8), H * (.1 + Math.random() * .38));
+      nextLaunch = t + 900 + Math.random() * 1300;
     }
-    drawFx();
+    drawFx(t);
   }
 
   hero.addEventListener('pointerdown', function(e){
     var r = hero.getBoundingClientRect();
-    burst(e.clientX - r.left, e.clientY - r.top, 90);
+    burst(e.clientX - r.left, e.clientY - r.top, 200);
   });
   if ('IntersectionObserver' in window){
     new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }, {threshold:0}).observe(hero);
@@ -556,6 +581,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
   requestAnimationFrame(frame);
 })();
 </script>
+
 <script>
 /* Перенос формул Image Stream Hero (ruixen.ui) на чистый JS: те же параметры по умолчанию */
 (function(){
