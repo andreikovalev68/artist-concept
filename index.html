@@ -94,21 +94,12 @@ a{color:inherit}
 .ph img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;background:var(--card);filter:contrast(1.04)}
 
 
-/* карусель-коридор: карточки идут по двум стенам из точки схода к краям, растут и поворачиваются */
-.stream{position:relative;container-type:inline-size;height:clamp(300px,40vw,520px);margin-top:clamp(8px,1.6vw,24px);perspective:68cqw;overflow:hidden}
-.wall{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
-.wall.l{transform:translateX(-27cqw) rotateY(90deg)}
-.wall.r{transform:translateX(27cqw) rotateY(-90deg)}
-.c3{position:absolute;left:-10cqw;top:-13cqw;width:20cqw;height:26cqw;object-fit:cover;border-radius:1.6cqw;background:var(--card);
-  box-shadow:0 .6cqw 2cqw rgba(28,24,32,.28);backface-visibility:hidden;opacity:0;will-change:transform,opacity;
-  animation:corridor 20s linear infinite;animation-delay:calc(var(--i) * -2.5s)}
-.stream:hover .c3{animation-play-state:paused}
-@keyframes corridor{
-  0%{transform:translate3d(180cqw,0,0);opacity:0}
-  8%{opacity:1}
-  90%{opacity:1}
-  100%{transform:translate3d(-42cqw,0,0);opacity:0}
-}
+/* Image Stream Hero (ruixen.ui, 21st.dev): две ленты карточек едут из точки схода к краям; геометрия перенесена из исходного компонента */
+.stream{position:relative;overflow:hidden;container-type:inline-size;height:min(46vw,640px);min-height:300px;margin-top:clamp(8px,1.6vw,24px)}
+.stream .persp{position:absolute;inset:0;pointer-events:none}
+.stream .ish3d{position:absolute;inset:0;transform-style:preserve-3d}
+.stream .ish-card{position:absolute;overflow:hidden;backface-visibility:hidden;background:var(--card);box-shadow:0 .5cqw 1.6cqw rgba(28,24,32,.25)}
+.stream .ish-card img{display:block;width:100%;height:100%;object-fit:cover}
 .hero-cta{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:clamp(24px,3vw,40px)}
 .hero-cta .sub{max-width:44ch}
 .hero-cta .cta{justify-content:center}
@@ -246,7 +237,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
   <div class="h1w">
     <h1 class="h1 t3d">Живая музыка. Живая сцена</h1>
   </div>
-  <div class="stream" id="stream" aria-label="Лента фотографий и обложек"><div class="wall l" id="wallL"></div><div class="wall r" id="wallR"></div></div>
+  <div class="stream" id="stream" aria-hidden="true"><div class="persp" id="persp"><div class="ish3d" id="ish3d"></div></div></div>
   <div class="wrap hero-cta">
     <p class="sub">Концерты, новые релизы и шоу-программы – всё о проекте в одном месте. Выберите дату и приходите.</p>
     <div class="cta">
@@ -410,19 +401,50 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
 <a class="callbar" href="#events">Купить билет</a>
 
 <script>
+/* Перенос формул Image Stream Hero (ruixen.ui) на чистый JS: те же параметры по умолчанию */
 (function(){
-  var L = [['portret','Портрет артиста'],['rel-shine','Обложка релиза'],['foto-1','Фото с выступления'],['rel-zhdi','Обложка релиза'],['foto-3','Афиша концерта'],['rel-angelina','Обложка релиза'],['foto-2','Фото с выступления'],['rel-khoroshiy','Обложка релиза']];
-  var R = [L[5],L[2],L[7],L[0],L[3],L[6],L[1],L[4]];
-  function fill(id, list){
-    var w = document.getElementById(id);
-    list.forEach(function(it, i){
-      var im = new Image();
-      im.className = 'c3'; im.src = 'img/' + it[0] + '.jpg'; im.alt = it[1] + ' (пример)';
-      im.style.setProperty('--i', i);
-      w.appendChild(im);
-    });
+  var P = {perspective:30, cardWidth:18, cardHeight:25, cardRadius:0.4, birthHeight:2.6, exitHeight:46,
+           railBirth:-11, railExit:44, fan:3.3, turnBirth:6, turnExit:28, stops:24};
+  var CARDS = 9, SPEED = 18, AXIS = 55;
+  var IMAGES = ['portret','rel-shine','foto-1','rel-zhdi','foto-3','rel-angelina','foto-2','rel-khoroshiy'];
+  var ALT = 'Фото и обложки (пример)';
+
+  function keyframes(dir, name){
+    var steps = [];
+    for (var s = 0; s <= P.stops; s++){
+      var u = s / P.stops;
+      var scale = (P.birthHeight / P.cardHeight) * Math.pow(P.exitHeight / P.birthHeight, u);
+      var z = P.perspective * (1 - 1 / scale);
+      var rail = P.railExit - (P.railExit - P.railBirth) * Math.pow(1 - u, P.fan);
+      var turn = P.turnBirth + (P.turnExit - P.turnBirth) * u;
+      steps.push((u * 100).toFixed(2) + '%{transform:translate3d(' + (dir * rail).toFixed(2) + 'cqw,0,' + z.toFixed(2) + 'cqw) rotateY(' + (-dir * turn).toFixed(2) + 'deg)}');
+    }
+    return '@keyframes ' + name + '{' + steps.join('') + '}';
   }
-  fill('wallL', L); fill('wallR', R);
+
+  var st = document.createElement('style');
+  st.textContent = keyframes(1, 'ish-r') + keyframes(-1, 'ish-l');
+  document.head.appendChild(st);
+
+  var persp = document.getElementById('persp');
+  persp.style.perspective = P.perspective + 'cqw';
+  persp.style.perspectiveOrigin = '50% ' + AXIS + '%';
+  var root = document.getElementById('ish3d');
+
+  ['ish-r', 'ish-l'].forEach(function(name){
+    for (var i = 0; i < CARDS; i++){
+      var d = document.createElement('div');
+      d.className = 'ish-card';
+      d.style.cssText = 'left:50%;top:' + AXIS + '%;width:' + P.cardWidth + 'cqw;height:' + P.cardHeight + 'cqw;' +
+        'margin-left:' + (-P.cardWidth / 2) + 'cqw;margin-top:' + (-P.cardHeight / 2) + 'cqw;border-radius:' + P.cardRadius + 'cqw;' +
+        'animation:' + name + ' ' + SPEED + 's linear infinite;animation-delay:' + (-(i * SPEED) / CARDS) + 's';
+      var im = new Image();
+      im.src = 'img/' + IMAGES[i % IMAGES.length] + '.jpg';
+      im.alt = ''; im.decoding = 'async'; im.draggable = false;
+      d.appendChild(im);
+      root.appendChild(d);
+    }
+  });
 })();
 </script>
 <script>
