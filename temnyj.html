@@ -80,10 +80,10 @@ a{color:inherit}
 .nav a:hover{color:var(--coral-hi)}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding:clamp(28px,4vw,52px) 0 clamp(56px,7vw,96px);background:radial-gradient(60% 60% at 50% 60%,rgba(217,167,92,.16),transparent 70%),var(--bg)}
+.hero{position:relative;overflow:hidden;padding:0 0 clamp(36px,4vw,64px);background:radial-gradient(60% 60% at 50% 60%,rgba(217,167,92,.16),transparent 70%),var(--bg)}
 .h1w{container-type:inline-size;padding:0 clamp(16px,2.5vw,40px)}
 .h1{margin:0;text-transform:uppercase;font:700 6.2cqw/1.1 'Cormorant Garamond',Georgia,serif;white-space:nowrap;letter-spacing:.005em}
-.h1-sub{margin:.3em 0 0;font:700 3.5cqw/1.15 'Cormorant Garamond',Georgia,serif;text-transform:uppercase;white-space:nowrap;letter-spacing:.02em}
+.h1-sub{text-align:center;margin:.3em 0 0;font:700 3.5cqw/1.15 'Cormorant Garamond',Georgia,serif;text-transform:uppercase;white-space:nowrap;letter-spacing:.02em}
 .hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;margin-top:clamp(24px,3.4vw,48px)}
 .sub{margin:0;max-width:34ch;font-size:clamp(19px,2vw,24px);line-height:1.45;color:var(--soft)}
 .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
@@ -96,7 +96,7 @@ a{color:inherit}
 
 
 /* Image Stream Hero (ruixen.ui, 21st.dev): две ленты карточек едут из точки схода к краям; геометрия перенесена из исходного компонента */
-.stream{position:relative;overflow:hidden;container-type:inline-size;height:min(46vw,640px);min-height:300px;margin-top:clamp(8px,1.6vw,24px)}
+.stream{position:relative;overflow:hidden;container-type:inline-size;height:min(38vw,540px);min-height:260px;margin-top:0}
 .stream .persp{position:absolute;inset:0;pointer-events:none}
 .stream .ish3d{position:absolute;inset:0;transform-style:preserve-3d}
 .stream .ish-card{position:absolute;overflow:hidden;backface-visibility:hidden;background:var(--card);box-shadow:0 0 0 .14cqw rgba(217,167,92,.4),0 .6cqw 2cqw rgba(0,0,0,.6)}
@@ -112,21 +112,21 @@ a{color:inherit}
 .fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #stars{z-index:0}
 #fw{z-index:2;mix-blend-mode:screen}
-.mic{position:absolute;left:50%;top:54%;width:clamp(110px,17cqw,260px);height:auto;transform:translate(-50%,-50%);z-index:3;pointer-events:none;filter:hue-rotate(10deg) saturate(1.1) drop-shadow(0 .8cqw 1.6cqw rgba(0,0,0,.65)) drop-shadow(0 0 2.6cqw rgba(217,167,92,.5));animation:micfloat 5s ease-in-out infinite}
+.mic{position:absolute;left:50%;top:50%;width:clamp(110px,17cqw,260px);height:auto;transform:translate(-50%,-50%);z-index:3;pointer-events:none;filter:hue-rotate(10deg) saturate(1.1) drop-shadow(0 .8cqw 1.6cqw rgba(0,0,0,.65)) drop-shadow(0 0 2.6cqw rgba(217,167,92,.5));animation:micfloat 5s ease-in-out infinite}
 @keyframes micfloat{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,-54%)}}
 .eyebrow::before{content:"º6 a0";letter-spacing:0}
 
 
 /* лейбл-логотип в левом верхнем углу: объёмная плашка */
-.label-row{position:relative;z-index:1;display:flex;padding:clamp(14px,2vw,24px) clamp(16px,2.5vw,40px) 0}
-.label3d{display:inline-flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;perspective:700px}
-.label3d .tile{position:relative;overflow:hidden;width:clamp(120px,12vw,168px);aspect-ratio:1;background:#fff;border-radius:10px;padding:5px;
+.label-row{position:relative;z-index:1;display:flex;padding:clamp(8px,1vw,14px) clamp(16px,2.5vw,40px) 0}
+.label3d{display:inline-flex;flex-direction:row;align-items:center;gap:18px;text-decoration:none;perspective:700px}
+.label3d .tile{position:relative;overflow:hidden;width:clamp(84px,7.5vw,112px);aspect-ratio:1;background:#fff;border-radius:10px;padding:5px;
   transform:rotateY(-16deg) rotateX(6deg);transform-style:preserve-3d;animation:swing 6s ease-in-out infinite alternate;
   box-shadow:1px 1px 0 var(--coral),2px 2px 0 var(--coral),3px 3px 0 var(--coral),4px 4px 0 var(--coral-lo),5px 5px 0 var(--coral-lo),
     6px 6px 0 var(--coral-lo),7px 7px 0 var(--coral-lo),8px 8px 0 var(--coral-lo),14px 18px 24px rgba(0,0,0,.45)}
 .label3d .tile img{display:block;width:100%;height:100%;object-fit:contain;border-radius:6px}
 .label3d .tile::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:wave 4.2s ease-in-out infinite}
-.label3d .cap{font:500 14px/1.3 'Golos Text',system-ui,sans-serif;color:var(--soft);text-align:center;max-width:22ch}
+.label3d .cap{font:500 14px/1.3 'Golos Text',system-ui,sans-serif;color:var(--soft);text-align:left;max-width:14ch}
 @keyframes swing{from{transform:rotateY(-18deg) rotateX(7deg)}to{transform:rotateY(14deg) rotateX(3deg)}}
 
 /* секции */
@@ -567,7 +567,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
 (function(){
   var P = {perspective:30, cardWidth:18, cardHeight:25, cardRadius:0.4, birthHeight:2.6, exitHeight:46,
            railBirth:-11, railExit:44, fan:3.3, turnBirth:6, turnExit:28, stops:24};
-  var CARDS = 9, SPEED = 18, AXIS = 55;
+  var CARDS = 9, SPEED = 18, AXIS = 50;
   var IMAGES = ['portret','rel-shine','foto-1','rel-zhdi','foto-3','rel-angelina','foto-2','rel-khoroshiy'];
   var ALT = 'Фото и обложки (пример)';
 
