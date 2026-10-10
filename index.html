@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Сайт артиста и музыкального проекта (концепт)</title>
-<meta name="description" content="Концепт сайта артиста: обложка с призывом к действию, о проекте, релизы, афиша с фильтром по городу, стриминги и видео, контакты и форма заявки. Тексты, даты и контакты условные.">
+<meta name="description" content="Светлый концепт сайта артиста: обложка с призывом к действию, о проекте, релизы, афиша с фильтром по городу, стриминги и видео, контакты и форма заявки. Тексты, даты и контакты условные.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23FF5A4E'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%230F0F14'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,18 +12,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0F0F14;
-  --bg-2:#15151C;
-  --card:#1B1B25;
-  --cream:#F4EFE6;
-  --soft:#C9C4BB;
-  --muted:#8E8A93;
-  --coral:#FF5A4E;
-  --coral-hi:#FF8F82;
-  --coral-lo:#B02B22;
+  --bg:#FBF8F2;
+  --bg-2:#F2EDE3;
+  --card:#FFFFFF;
+  --cream:#1C1820;
+  --soft:#4A4550;
+  --muted:#6F6A76;
+  --coral:#E8473B;
+  --coral-hi:#C93428;
+  --coral-lo:#8F211A;
   --on-coral:#1A0806;
-  --line:rgba(244,239,230,.14);
-  color-scheme:dark;
+  --line:rgba(28,24,32,.16);
+  color-scheme:light;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -38,9 +38,9 @@ a{color:inherit}
 
 /* 3D-надпись */
 .t3d{
-  color:var(--cream);
-  text-shadow:0 .014em 0 #FFC1B8,0 .028em 0 var(--coral-hi),0 .044em 0 var(--coral),0 .06em 0 #E04439,
-    0 .076em 0 #C0362C,0 .092em 0 var(--coral-lo),0 .11em .06em rgba(0,0,0,.5),0 .18em .16em rgba(0,0,0,.4);
+  color:#F2503F;
+  text-shadow:0 .014em 0 #DB4234,0 .028em 0 #C8392C,0 .044em 0 #B53126,0 .06em 0 #A2291F,
+    0 .076em 0 #8F211A,0 .092em 0 #7A1913,0 .11em .06em rgba(60,10,6,.35),0 .18em .16em rgba(60,10,6,.25);
 }
 
 /* кнопки */
@@ -60,7 +60,7 @@ a{color:inherit}
 .btn:hover{filter:brightness(1.07)}
 .btn:active{transform:translateY(1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 0 #691711,0 3px 6px rgba(0,0,0,.5)}
 .btn-dark{
-  background:linear-gradient(180deg,#34343F 0%,#24242D 50%,#1A1A22 100%);color:var(--cream);
+  background:linear-gradient(180deg,#34343F 0%,#24242D 50%,#1A1A22 100%);color:#F4EFE6;
   text-shadow:0 1px 0 #000,0 2px 0 rgba(0,0,0,.5),0 3px 3px rgba(0,0,0,.4);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 0 #0A0A0E,0 2px 0 #08080C,0 3px 0 #060609,0 4px 0 #050507,0 5px 0 #040406,0 10px 16px rgba(0,0,0,.5);
 }
@@ -71,7 +71,7 @@ a{color:inherit}
 @keyframes bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(-5px)}}
 
 /* шапка */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(15,15,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(251,248,242,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 24px/1 'Oswald',system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
 .brand i{width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,90,78,.25)}
@@ -80,7 +80,7 @@ a{color:inherit}
 .nav a:hover{color:var(--coral-hi)}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding:clamp(28px,4vw,52px) 0 clamp(56px,7vw,96px);background:radial-gradient(60% 80% at 82% 30%,rgba(255,90,78,.22),transparent 70%),var(--bg)}
+.hero{position:relative;overflow:hidden;padding:clamp(28px,4vw,52px) 0 clamp(56px,7vw,96px);background:radial-gradient(70% 70% at 50% 62%,rgba(232,71,59,.14),transparent 70%),var(--bg)}
 .h1w{container-type:inline-size;padding:0 clamp(16px,2.5vw,40px)}
 .h1{margin:0;font:700 7cqw/1.1 'Oswald','Impact',system-ui,sans-serif;text-transform:uppercase;white-space:nowrap;letter-spacing:.005em}
 .hero-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;margin-top:clamp(24px,3.4vw,48px)}
@@ -92,6 +92,27 @@ a{color:inherit}
 .ph{position:relative;padding:0 14px 14px 0}
 .ph::before{content:"";position:absolute;inset:14px 0 0 14px;border:2px solid var(--coral)}
 .ph img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;background:var(--card);filter:contrast(1.04)}
+
+
+/* карусель-коридор: карточки идут по двум стенам из точки схода к краям, растут и поворачиваются */
+.stream{position:relative;container-type:inline-size;height:clamp(300px,40vw,520px);margin-top:clamp(8px,1.6vw,24px);perspective:68cqw;overflow:hidden}
+.wall{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.wall.l{transform:translateX(-27cqw) rotateY(90deg)}
+.wall.r{transform:translateX(27cqw) rotateY(-90deg)}
+.c3{position:absolute;left:-10cqw;top:-13cqw;width:20cqw;height:26cqw;object-fit:cover;border-radius:1.6cqw;background:var(--card);
+  box-shadow:0 .6cqw 2cqw rgba(28,24,32,.28);backface-visibility:hidden;opacity:0;will-change:transform,opacity;
+  animation:corridor 20s linear infinite;animation-delay:calc(var(--i) * -2.5s)}
+.stream:hover .c3{animation-play-state:paused}
+@keyframes corridor{
+  0%{transform:translate3d(180cqw,0,0);opacity:0}
+  8%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translate3d(-42cqw,0,0);opacity:0}
+}
+.hero-cta{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:clamp(24px,3vw,40px)}
+.hero-cta .sub{max-width:44ch}
+.hero-cta .cta{justify-content:center}
+.hero-cta .soc{justify-content:center}
 
 /* секции */
 .sec{padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--line)}
@@ -113,7 +134,7 @@ a{color:inherit}
 
 /* релизы */
 .rel{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px);margin-top:clamp(28px,4vw,48px)}
-.rc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.rc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 10px 24px -16px rgba(28,24,32,.35)}
 .rc img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
 .rc div{display:flex;flex-direction:column;gap:6px;padding:16px;flex:1}
 .rc b{font:600 20px/1.2 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em}
@@ -156,7 +177,7 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
 .req textarea{min-height:110px;resize:vertical}
 .req input:focus,.req select:focus,.req textarea:focus{outline:2px solid var(--coral-hi);outline-offset:1px}
 .req .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.err{margin:0;min-height:1.3em;color:#FFB4AB;font-size:15px}
+.err{margin:0;min-height:1.3em;color:#B3261E;font-size:15px}
 .done{padding:clamp(20px,3vw,32px);background:var(--card);border:1px solid var(--coral);border-radius:6px}
 .done h3{margin:0 0 10px;font:700 26px/1.1 'Oswald',sans-serif;text-transform:uppercase;color:var(--coral-hi)}
 .done p{margin:0 0 14px;color:var(--soft)}
@@ -225,21 +246,19 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
   <div class="h1w">
     <h1 class="h1 t3d">Живая музыка. Живая сцена</h1>
   </div>
-  <div class="wrap hero-grid">
-    <div>
-      <p class="sub">Концерты, новые релизы и шоу-программы – всё о проекте в одном месте. Выберите дату и приходите.</p>
-      <div class="cta">
-        <a class="btn" href="#events">Купить билет</a>
-        <a class="btn btn-dark" href="#releases">Слушать релизы</a>
-      </div>
-      <ul class="soc" aria-label="Соцсети">
-        <li><a href="#contacts">VK</a></li>
-        <li><a href="#contacts">Telegram</a></li>
-        <li><a href="#media">YouTube</a></li>
-        <li><a href="#media">Яндекс Музыка</a></li>
-      </ul>
+  <div class="stream" id="stream" aria-label="Лента фотографий и обложек"><div class="wall l" id="wallL"></div><div class="wall r" id="wallR"></div></div>
+  <div class="wrap hero-cta">
+    <p class="sub">Концерты, новые релизы и шоу-программы – всё о проекте в одном месте. Выберите дату и приходите.</p>
+    <div class="cta">
+      <a class="btn" href="#events">Купить билет</a>
+      <a class="btn btn-dark" href="#releases">Слушать релизы</a>
     </div>
-    <div class="ph"><img src="img/portret.jpg" alt="Портрет артиста (фото – пример наполнения)" width="800" height="1000"></div>
+    <ul class="soc" aria-label="Соцсети">
+      <li><a href="#contacts">VK</a></li>
+      <li><a href="#contacts">Telegram</a></li>
+      <li><a href="#media">YouTube</a></li>
+      <li><a href="#media">Яндекс Музыка</a></li>
+    </ul>
   </div>
 </section>
 
@@ -390,6 +409,22 @@ form.req{display:grid;gap:16px;padding:clamp(20px,3vw,32px);background:var(--car
 
 <a class="callbar" href="#events">Купить билет</a>
 
+<script>
+(function(){
+  var L = [['portret','Портрет артиста'],['rel-shine','Обложка релиза'],['foto-1','Фото с выступления'],['rel-zhdi','Обложка релиза'],['foto-3','Афиша концерта'],['rel-angelina','Обложка релиза'],['foto-2','Фото с выступления'],['rel-khoroshiy','Обложка релиза']];
+  var R = [L[5],L[2],L[7],L[0],L[3],L[6],L[1],L[4]];
+  function fill(id, list){
+    var w = document.getElementById(id);
+    list.forEach(function(it, i){
+      var im = new Image();
+      im.className = 'c3'; im.src = 'img/' + it[0] + '.jpg'; im.alt = it[1] + ' (пример)';
+      im.style.setProperty('--i', i);
+      w.appendChild(im);
+    });
+  }
+  fill('wallL', L); fill('wallR', R);
+})();
+</script>
 <script>
 (function(){
   /* фильтр афиши */
